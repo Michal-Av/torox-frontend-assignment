@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Card, CardMedia, Typography, Chip, Box, Stack } from "@mui/material";
 import { Offer } from "../../types/Offer";
-import { FaAndroid, FaApple, FaGlobe } from "react-icons/fa"; // אייקונים למערכות הפעלה
+import { FaAndroid, FaApple, FaGlobe } from "react-icons/fa"; // OS icons for offers
 
+// Default image to use if the offer does not have a valid image
 const defaultImage = "https://placehold.co/100x100?text=No+Image";
 
+// Function to determine which OS icon to display
 const getOsIcon = (os: string) => {
   switch (os) {
     case "ios":
@@ -18,7 +20,9 @@ const getOsIcon = (os: string) => {
   }
 };
 
+// OfferCard component: Displays the details of an offer
 const OfferCard: React.FC<{ offer: Offer }> = ({ offer }) => {
+  // State to handle image loading errors and use default image if necessary
   const [imageSrc, setImageSrc] = useState(offer.img_url || defaultImage);
 
   return (
@@ -39,6 +43,7 @@ const OfferCard: React.FC<{ offer: Offer }> = ({ offer }) => {
         "&:hover": { transform: "scale(1.02)" },
       }}
     >
+      {/* Top section: Image + title + description */}
       <Stack direction="row" spacing={2} alignItems="center">
         <CardMedia
           component="img"
@@ -50,23 +55,24 @@ const OfferCard: React.FC<{ offer: Offer }> = ({ offer }) => {
           }}
           image={imageSrc}
           alt={offer.title}
-          onError={() => setImageSrc(defaultImage)}
+          onError={() => setImageSrc(defaultImage)} // If the image fails to load, replace with default image
         />
-        <Box>           
-            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-              {offer.title}
-            </Typography>
+        <Box>
+          <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+            {offer.title}
+          </Typography>
           <Typography variant="body2" sx={{ color: "#b0b3c8", mt: 1 }}>
             {offer.description}
           </Typography>
         </Box>
       </Stack>
 
- 
+      {/* Bottom section: OS icon + badges + payout */}
       <Stack direction="row" justifyContent="space-between" alignItems="center" mt={2}>
+        {/* OS icon and badges */}
         <Stack direction="row" spacing={1} alignItems="center">
           <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-            {getOsIcon(offer.os)} 
+            {getOsIcon(offer.os)} {/* Display the correct OS icon */}
           </Box>
           {offer.badges.map((badge) => (
             <Chip
@@ -82,6 +88,8 @@ const OfferCard: React.FC<{ offer: Offer }> = ({ offer }) => {
             />
           ))}
         </Stack>
+
+        {/* Payout amount */}
         <Box
           sx={{
             backgroundColor: "#80ff80",
