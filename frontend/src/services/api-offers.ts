@@ -4,5 +4,6 @@ const API_BASE_URL = "http://localhost:8000/api";
 
 export const fetchOffers = async (page: number) => {
   const response = await axios.get(`${API_BASE_URL}/offers?page=${page}`);
+  console.log("Fetched Page:", page, response.data);
   return response.data;
 };
