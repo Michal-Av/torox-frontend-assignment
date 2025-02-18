@@ -76,9 +76,8 @@ npm start
 ```
 
 ## 📸 Screenshots
-![image](https://github.com/user-attachments/assets/c1c6ab1b-c481-4195-a71d-e8bb5f145db2)
-![image](https://github.com/user-attachments/assets/60147f7f-1c10-4922-bcd9-434778d55cc1)
-
+![image](https://github.com/user-attachments/assets/b4202d72-6472-4850-8808-a3185c437fa3)
+![image](https://github.com/user-attachments/assets/6a121e60-c1eb-4c76-8eab-b9e6eff6e98b)
 
 ## 📌 API Endpoints (Backend Simulation)
 - `GET /api/offers?page=1` → Fetches paginated offers
