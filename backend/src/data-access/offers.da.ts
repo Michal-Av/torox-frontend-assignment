@@ -3,7 +3,7 @@ import { Offer } from "../models/offers.model";
 const OFFERS_MOCK: Offer[] = Array.from({ length: 50 }, (_, i) => ({
   id: i + 1,
   title: `Offer ${i + 1}`,
-  img_url: "https://via.placeholder.com/150",
+  img_url: "/cartoon-style-game.webp",
   description: "This is a sample offer description",
   os: ["ios", "android", "web"][Math.floor(Math.random() * 3)] as "ios" | "android" | "web",
   badges: ["Gaming", "Multireward"],
